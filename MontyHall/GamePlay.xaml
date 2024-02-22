@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:montyHall="using:MontyHall"
+             x:Class="MontyHall.GamePlay"
+             Title="Monty Hall">
+    <ScrollView>
+        <VerticalStackLayout>
+            <HorizontalStackLayout HorizontalOptions="End" Spacing="10" Margin="10">
+                <Button x:Name="BtnReset" Clicked="BtnReset_OnClicked" Text="Reset" MaximumWidthRequest="100" CornerRadius="0"/>
+                <Button x:Name="BtnStat" Clicked="BtnStat_OnClicked" Text="Stat" MaximumWidthRequest="100" CornerRadius="0"/>
+            </HorizontalStackLayout>
+            <!--<Label 
+            Text="Let's choose 1 door !!!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            Style="{StaticResource Headline}"/>
+            <Label Text="Here wer have 3 closed-doors. Behind one of the 3 doors is an expensive car. Behind the rest is 2 goats.&#10;You can choose 1 door and will receive reward behind the door."
+               Style="{StaticResource SubHeadline}"/>-->
+            <Grid ColumnSpacing="10" Margin="15 ,15, 15,30">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <ImageButton x:Name="BtnDoor0" Clicked="BtnDoor0_OnClicked" Grid.Column="0" Source="{Binding DoorImage0}" MaximumWidthRequest="300" Padding="50" BorderWidth="10">
+
+                </ImageButton>
+                <ImageButton x:Name="BtnDoor1" Clicked="BtnDoor1_OnClicked" Grid.Column="1" Source="{Binding DoorImage1}" MaximumWidthRequest="300" Padding="50" BorderWidth="10">
+
+                </ImageButton>
+                <ImageButton x:Name="BtnDoor2" Clicked="BtnDoor2_OnClicked" Grid.Column="2" Source="{Binding DoorImage2}" MaximumWidthRequest="300" Padding="50" BorderWidth="10">
+
+                </ImageButton>
+                <Label Grid.Column="0" HorizontalTextAlignment="Center" Style="{StaticResource Headline}">1</Label>
+                <Label Grid.Column="1" HorizontalTextAlignment="Center" Style="{StaticResource Headline}">2</Label>
+                <Label Grid.Column="2" HorizontalTextAlignment="Center" Style="{StaticResource Headline}">3</Label>
+            </Grid>
+            <Button x:Name="BtnShowResult" Text="Show Result" IsEnabled="False" Clicked="BtnShowResult_OnClicked" MaximumWidthRequest="400" CornerRadius="0"/>
+            <!--<CollectionView ItemsSource="{Binding Doors}"
+                        ItemsLayout="HorizontalList">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <ImageButton Source="{Binding ImageSource}" Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}, Mode=FindAncestor}, Path=BindingContext.OpenDoorCommand, Mode=TwoWay}" CommandParameter="{Binding .}"/>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>-->
+            <Label x:Name="LbMessage" Margin="15, 15"></Label>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
